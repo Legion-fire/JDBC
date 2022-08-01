@@ -11,18 +11,14 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
 
     private static final Connection conn = Util.getInstance().getConnection();
-    private Statement createUsersTable = conn.createStatement();
-    private Statement dropUsersTable = conn.createStatement();
-    private Statement getAllUsers = conn.createStatement();
-    private Statement cleanUsersTable = conn.createStatement();
 
-    public UserDaoJDBCImpl() throws SQLException {
+    public UserDaoJDBCImpl() {
 
     }
 
     public void createUsersTable() {
         try {
-            createUsersTable.executeUpdate("create table if not exists Users(    \n" +
+            conn.createStatement().executeUpdate("create table if not exists Users(    \n" +
                     "    id bigint primary key AUTO_INCREMENT,\n" +
                     "\n" +
                     "    \n" +
@@ -39,7 +35,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void dropUsersTable() {
         try {
-            dropUsersTable.executeUpdate("drop table if exists Users");
+            conn.createStatement().executeUpdate("drop table if exists Users");
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -57,7 +53,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void removeUserById(long id) {
-        try (PreparedStatement removeUserById = conn.prepareStatement("delete from Users where id = id")) {
+        try (PreparedStatement removeUserById = conn.prepareStatement("delete from Users where id = ?")) {
             removeUserById.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,7 +64,7 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> userList = new ArrayList<>();
         ResultSet resultSet;
         try {
-            resultSet = getAllUsers.executeQuery("select * from Users");
+            resultSet = conn.prepareStatement("select * from Users").executeQuery();
             while (resultSet.next()){
                 long id = resultSet.getLong("ID");
                 String name = resultSet.getString("name");
@@ -91,7 +87,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void cleanUsersTable() {
         try {
-            cleanUsersTable.executeUpdate("delete from Users");
+            conn.prepareStatement("delete from Users");
         } catch (SQLException e) {
             e.printStackTrace();
         }
