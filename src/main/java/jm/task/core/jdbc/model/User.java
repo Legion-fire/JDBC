@@ -1,10 +1,9 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table
+@Entity
+@Table ()
 public class User {
 
     @Override
@@ -18,6 +17,7 @@ public class User {
     }
 
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
