@@ -85,7 +85,7 @@ public class UserDaoHibernateImpl implements UserDao {
         Transaction transaction;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            list = session.createCriteria(User.class).list();
+            list = session.createQuery("FROM User", (User.class)).list();
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,7 +98,7 @@ public class UserDaoHibernateImpl implements UserDao {
         Transaction transaction;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            final List<User> instances = session.createCriteria(User.class).list();
+            final List<User> instances = session.createQuery("FROM User", User.class).list();
 
             for (User o : instances) {
                 session.delete(o);
