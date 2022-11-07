@@ -1,0 +1,8 @@
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/model/User.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/service/UserService.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/util/Util.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/Main.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/dao/UserDaoHibernateImpl.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/service/UserServiceImpl.java
+/home/mad-haosist/Документы/PP_1_1_3-4_JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/dao/UserDao.java
